@@ -1,9 +1,9 @@
 import Login from "./Paginas/Login";
+import './Styles/EstilosGlobais.css'
 
 function App() {
   return (
     <>
-      <h1>Login</h1>
       <Login />
     </>
   );
