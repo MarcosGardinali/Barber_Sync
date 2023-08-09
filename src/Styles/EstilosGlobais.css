@@ -1,0 +1,6 @@
+@import './Variaveis.css';
+@import './Reset.css';
+
+body{
+    background-color: var(--primeira_cor);
+}
