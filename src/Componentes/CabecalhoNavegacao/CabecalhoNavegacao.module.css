@@ -1,0 +1,12 @@
+@import 'Styles/Variaveis.css';
+
+.links{
+    margin-top: 6%;
+    color: var(--quarta_cor);
+    font-family: var(--primeira_fonte);
+}
+
+.links:hover{
+    color: var(--terceira_cor);
+    font-weight: bold;
+}

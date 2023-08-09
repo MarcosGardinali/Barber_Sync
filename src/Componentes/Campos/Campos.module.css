@@ -5,8 +5,8 @@
     flex-direction: column;
     font-size: 1.5rem;
     gap: 1rem;
-    margin: 0 4rem;
     color: var(--quarta_cor);
+    width: 100%;
 }
 
 .campos input{

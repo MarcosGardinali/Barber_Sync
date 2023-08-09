@@ -13,7 +13,7 @@
 .login__form{
     border: 0.1rem solid transparent;
     border-radius: 1rem;
-    padding: 2rem 4rem;
+    padding: 2rem 1rem;
     background-color: var(--segunda_cor);
 }
 
