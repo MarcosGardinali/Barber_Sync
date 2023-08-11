@@ -1,0 +1,18 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 3rem;
+}
+
+.botoesContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
