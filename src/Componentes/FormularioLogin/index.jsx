@@ -1,17 +1,33 @@
 import styles from './FormularioLogin.module.css';
 import Campos from 'Componentes/Campos';
 import Botao from 'Componentes/Botao';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import UsersContext from 'Contexts/UsersContexts';
+
 
 export default function FormularioLogin() {
 
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
+  const { user } = useContext(UsersContext);
+
+
+  const navigate = useNavigate(); 
+
+  function botaoCadastrar(){
+    navigate('/cadastro-usuario')
+  }
+
   function handleSubmit(evento){
     evento.preventDefault();
-    console.log('submit', { login, senha });
-
+    if(login === user.email && senha === user.senha){
+      navigate('/inicio');
+    }
+    else{
+      alert("Login ou senha incorretos!!")
+    }
     setLogin('')
     setSenha('')
   }
@@ -42,7 +58,7 @@ export default function FormularioLogin() {
             </Botao>
           </div>
           <div className={styles.cadastrarButton}>
-            <Botao type="button" onclick={() => console.log("Cadastrar foi clicado")}>
+            <Botao type="button" onclick={botaoCadastrar}>
               Cadastrar-se
             </Botao>
           </div>
