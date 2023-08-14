@@ -3,7 +3,8 @@ import Campos from 'Componentes/Campos';
 import UsersContext from 'Contexts/UsersContexts';
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import styles from './CadastroUsuario.module.css'
+import { cadastrarUsuario } from './CadastroHelpers';
     
 
 
@@ -15,25 +16,23 @@ export default function CadastroUsuario() {
 
     const navigate = useNavigate();
 
-    const {setUser} = useContext(UsersContext)
+    const {setUsers} = useContext(UsersContext)
 
     function botaoVoltar(){
         navigate('/')
     }
 
-    function cadastrar(evento){
+    function cadastrar(evento) {
         evento.preventDefault();
-        setUser({
-            id: uuidv4(),
-            nome,
-            email,
-            senha
-        })
-        navigate('/')
+        const novoUsuario = cadastrarUsuario(nome, email, senha);
+        setUsers(novoUsuario);
+        navigate('/');
     }
 
   return (
-        <form onSubmit={cadastrar}>
+        <form onSubmit={cadastrar} className={styles.pagina__cadastro}>
+            <h1 className={styles.titulo}>SignUp - <strong>Barber Sync</strong></h1>
+            <main className={styles.formulario}>
             <Campos
                 type='text '
                 placeholder='Insira o seu nome'
@@ -58,12 +57,15 @@ export default function CadastroUsuario() {
             >
                 Senha:
             </Campos>
+            <section>
             <Botao>
               Cadastrar-se
             </Botao>
             <Botao onclick={botaoVoltar}>
               Voltar
             </Botao>
+            </section>
+            </main>
         </form>
     );
 }

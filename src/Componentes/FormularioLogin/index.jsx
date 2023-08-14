@@ -11,7 +11,7 @@ export default function FormularioLogin() {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
 
-  const { user } = useContext(UsersContext);
+  const { users } = useContext(UsersContext);
 
 
   const navigate = useNavigate(); 
@@ -22,7 +22,7 @@ export default function FormularioLogin() {
 
   function handleSubmit(evento){
     evento.preventDefault();
-    if(login === user.email && senha === user.senha){
+    if(login === users.email && senha === users.senha){
       navigate('/inicio');
     }
     else{

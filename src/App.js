@@ -11,11 +11,11 @@ import Logado from "Contexts/Logado";
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [users, setUsers] = useState({});
   const [logado, setLogado] = useState(false);
 
   return (
-    <UsersContext.Provider value={{ user, setUser }}>
+    <UsersContext.Provider value={{ users, setUsers }}>
       <BrowserRouter>
         <Logado.Provider value={{ logado, setLogado }}>
           <Routes>
